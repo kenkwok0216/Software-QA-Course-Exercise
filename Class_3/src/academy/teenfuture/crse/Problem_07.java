@@ -3,33 +3,22 @@ package academy.teenfuture.crse;
 import java.util.Scanner;
 
 class Problem_07 {
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
 
-        int count = 0;
-        System.out.print("Input the starting point: ");
-        int num_1 = scan.nextInt();
+		System.out.print("Input the first number: ");
+		int num_1 = scan.nextInt();
 
-        System.out.print("Input the end point: ");
-        int num_2 = scan.nextInt();
+		System.out.print("Input the second number: ");
+		int num_2 = scan.nextInt();
 
-        System.out.print("Input the divisor: ");
-        int num_3 = scan.nextInt();
+		if (num_1 % 10 == num_2 % 10 || num_1 / 10 == num_2 / 10) {
+			System.out.println("The result is true");
+		} else {
+			System.out.println("The result is false");
+		}
 
-        for(int i = num_1; i <= num_2; i++){
-            if(i % num_3 == 0){
-                count++;
-            } else {
-                //do nothing
-            }
-        }
-
-        System.out.println("There are " + count + " integer divisible by " + num_3);
-
-
-
-        scan.close();
-    }
-
+		scan.close();
+	}
 
 }

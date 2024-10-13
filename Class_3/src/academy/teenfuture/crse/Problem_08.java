@@ -12,11 +12,7 @@ class Problem_08 {
 		System.out.print("Input the second number: ");
 		int num_2 = scan.nextInt();
 
-		if (num_1 % 10 == num_2 % 10 || num_1 / 10 == num_2 / 10) {
-			System.out.println("The result is true");
-		} else {
-			System.out.println("The result is false");
-		}
+		System.out.println("The required modules is " + (num_1 - num_2 * (num_1 / num_2)));
 
 		scan.close();
 	}

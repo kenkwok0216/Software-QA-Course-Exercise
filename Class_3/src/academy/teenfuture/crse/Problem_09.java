@@ -7,12 +7,15 @@ class Problem_09 {
 		Scanner scan = new Scanner(System.in);
 
 		System.out.print("Input the first number: ");
-		int num_1 = scan.nextInt();
+		int num = scan.nextInt();
 
-		System.out.print("Input the second number: ");
-		int num_2 = scan.nextInt();
-
-		System.out.println("The required modules is " + (num_1 - num_2 * (num_1 / num_2)));
+		if (num < 0) {
+			System.out.println("The number is negative");
+		} else if (num > 0) {
+			System.out.println("The number is positive");
+		} else {
+			System.out.println("The number is neither positive nor negative");
+		}
 
 		scan.close();
 	}
