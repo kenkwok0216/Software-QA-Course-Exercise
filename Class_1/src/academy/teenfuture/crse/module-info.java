@@ -1,3 +1,0 @@
-
-module Class_1 {
-}
