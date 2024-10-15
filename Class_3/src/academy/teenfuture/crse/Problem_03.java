@@ -21,5 +21,4 @@ class Problem_03 {
         scan.close();
     }
 
-
 }
