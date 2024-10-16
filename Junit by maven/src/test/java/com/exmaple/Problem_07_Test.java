@@ -23,11 +23,11 @@ public class Problem_07_Test {
 
 		String mainString_3 = "Hello World!";
 		String prefix_3 = "";
-		assertTrue(checker.startsWithPrefix(mainString_3, prefix_3), "The result is True");
+		assertTrue(checker.startsWithPrefix(mainString_3, prefix_3), "Empty String should return true");
 
 		String mainString_4 = "Hello World!";
-		String prefix_4 = "world!";
-		assertFalse(checker.startsWithPrefix(mainString_4, prefix_4), "The result is False");
+		String prefix_4 = "Hello World!";
+		assertTrue(checker.startsWithPrefix(mainString_4, prefix_4), "Same String should return true");
 
 		String mainString_5 = "HAHA";
 		String prefix_5 = "haha";
