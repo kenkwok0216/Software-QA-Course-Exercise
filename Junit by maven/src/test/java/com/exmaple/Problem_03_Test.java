@@ -12,7 +12,7 @@ public class Problem_03_Test {
 	private final Problem_03 checker = new Problem_03();
 
 	@Test
-	public void testPalindrome() {
+	public void testPrime() {
 		assertFalse(checker.isPrime(-1), "0 is not prime");
 		assertFalse(checker.isPrime(0), "-1 is not prime");
 		assertFalse(checker.isPrime(1), "0 is not prime");
