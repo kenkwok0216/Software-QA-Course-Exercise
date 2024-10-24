@@ -4,5 +4,5 @@
 /**
  * 
  */
-module Class_3 {
+module Class_three {
 }
