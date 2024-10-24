@@ -1,11 +1,11 @@
-package acadeny.teenfuture.crse.test;
+package academy.teenfuture.crse.test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import acadeny.teenfuture.crse.main.Problem_06;
+import academy.teenfuture.crse.main.Problem_06;
 
 public class Problem_06_Test {
 
