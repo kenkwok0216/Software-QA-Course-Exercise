@@ -1,4 +1,4 @@
-package acadeny.teenfuture.crse.main;
+package academy.teenfuture.crse.main;
 
 public class Problem_03 {
 

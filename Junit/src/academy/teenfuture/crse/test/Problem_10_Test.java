@@ -1,10 +1,10 @@
-package acadeny.teenfuture.crse.test;
+package academy.teenfuture.crse.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import acadeny.teenfuture.crse.main.Problem_10;
+import academy.teenfuture.crse.main.Problem_10;
 
 public class Problem_10_Test {
 

@@ -21,12 +21,15 @@ def list_java_projects(directory):
 
 def compile_java_files(base_dir):
     """Compile all Java files in the specified project directory, excluding .git directories."""
-    print(f"Compiling Java files, Please wait a moment...")  # Start Compilation process
-    for class_folder in os.listdir(base_dir):
+    print("Compiling Java files, please wait...")  # Start Compilation process
+
+    for class_folder in sorted(os.listdir(base_dir)):
         class_folder_path = os.path.join(base_dir, class_folder)
 
         if os.path.isdir(class_folder_path) and class_folder != '.git':
-            src_path = os.path.join(class_folder_path, 'src', 'academy', 'teenfuture', 'crse')
+            # Change to the Class project directory
+            os.chdir(class_folder_path)
+
             bin_path = os.path.join(class_folder_path, 'bin')
 
             if os.path.exists(bin_path):
@@ -34,35 +37,12 @@ def compile_java_files(base_dir):
 
             os.makedirs(bin_path)
 
-            all_java_files = []
-            for root, _, files in os.walk(src_path):
-                if '.git' in root.split(os.path.sep):
-                    continue
-                for file in files:
-                    if file.endswith('.java'):
-                        all_java_files.append(os.path.join(root, file))
-
-            if all_java_files:
-                if tqdm_installed:
-                    # Use tqdm for the progress bar
-                    with tqdm(total=len(all_java_files), desc=f"Compiling {class_folder}") as pbar:
-                        for java_file in all_java_files:
-                            try:
-                                subprocess.run(['javac', '-d', bin_path, java_file], check=True)
-                                pbar.update(1)  # Update progress bar for each file
-                            except subprocess.CalledProcessError as e:
-                                print(f"Error compiling {java_file}: {e}")
-                else:
-                    # Fallback to simple print statements
-                    print("\nTQDM is not installed. For a better UI experience, consider installing it:")
-                    print("You can install tqdm using: pip install tqdm")
-                    print(f"\nCompiling {class_folder}...")
-                    for java_file in all_java_files:
-                        try:
-                            subprocess.run(['javac', '-d', bin_path, java_file], check=True)
-                            print(f"Compiled: {java_file}")
-                        except subprocess.CalledProcessError as e:
-                            print(f"Error compiling {java_file}: {e}")
+            # Compile all .java files using wildcard
+            try:
+                subprocess.run(f'javac -d bin -sourcepath src src/academy/teenfuture/crse/*.java', shell=True, check=True)
+                print(f"Compiled all Java files in {class_folder}")
+            except subprocess.CalledProcessError as e:
+                print(f"Error compiling Java files in {class_folder}: {e}")
 
     print("Compilation completed for all projects")
 
