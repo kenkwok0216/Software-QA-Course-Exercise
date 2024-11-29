@@ -77,19 +77,19 @@ public class PlayWrightTests {
 		// Wait for the email input field inside the iframe
 		Locator email = frame.locator("#email-6bad05fa-e723-4982-8620-6b7ea61c7286");
 		email.scrollIntoViewIfNeeded();
-		email.type("test_email@testemail.com", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(email, "test_email@testemail.com", 250);
 
 		Locator users = frame.locator("//input[@type='number']");
 		users.scrollIntoViewIfNeeded();
-		users.type("11", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(users, "11", 250);
 
 		Locator place = frame.locator("//input[@inputmode='text']");
 		place.scrollIntoViewIfNeeded();
-		place.type("Earth", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(place, "Earth", 250);
 
 		Locator message = frame.locator("//textarea[@class='hs-input hs-fieldtype-textarea']");
 		message.scrollIntoViewIfNeeded();
-		message.type("iframe is so interesting", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(message, "iframe is so interesting", 250);
 
 		// Taking Screenshot
 		byte[] screenshot = page.screenshot();
@@ -208,9 +208,9 @@ public class PlayWrightTests {
 
 			System.out.println("======= Contact Number Error =======");
 			Thread.sleep(250);
-			Contact_Number.type("333", new Locator.TypeOptions().setDelay(250));
+			typeWithDelay(Contact_Number, "333", 250);
 			Thread.sleep(250);
-			Email_Address.type("example@example.com", new Locator.TypeOptions().setDelay(250));
+			typeWithDelay(Email_Address, "example@example.com", 250);
 			Thread.sleep(250);
 			Contact_Number.press("End"); // This line is for activate the error message
 
@@ -268,9 +268,9 @@ public class PlayWrightTests {
 
 			System.out.println("======= Email Address Error =======");
 			Thread.sleep(250);
-			Contact_Number.type("1234567890", new Locator.TypeOptions().setDelay(250));
-			Thread.sleep(250);
-			Email_Address.type("example", new Locator.TypeOptions().setDelay(250));
+			typeWithDelay(Contact_Number, "1234567890", 250);
+			Thread.sleep(250); // Optional delay if needed
+			typeWithDelay(Email_Address, "example@example.com", 250);
 			Thread.sleep(250);
 			Contact_Number.press("End"); // This line is for activate the error message
 
@@ -328,9 +328,9 @@ public class PlayWrightTests {
 
 			System.out.println("======= Email Address and Contact Number Error =======");
 			Thread.sleep(250);
-			Contact_Number.type("123", new Locator.TypeOptions().setDelay(250));
-			Thread.sleep(250);
-			Email_Address.type("example", new Locator.TypeOptions().setDelay(250));
+			typeWithDelay(Contact_Number, "123", 250);
+			Thread.sleep(250); // Optional delay
+			typeWithDelay(Email_Address, "example@example.com", 250);
 			Thread.sleep(250);
 			Contact_Number.press("End"); // This line is for activate the error message
 
@@ -405,10 +405,10 @@ public class PlayWrightTests {
 		// Filling Full Name
 		Thread.sleep(250);
 		First_Name.scrollIntoViewIfNeeded();
-		First_Name.type("Chris", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(First_Name, "Chris", 250);
 		Thread.sleep(250);
 		Last_Name.scrollIntoViewIfNeeded();
-		Last_Name.type("Wong", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(Last_Name, "Wong", 250);
 		Thread.sleep(250);
 
 		// Taking Screenshot
@@ -419,7 +419,7 @@ public class PlayWrightTests {
 
 		// Filling Contact Number
 		Contact_Number.scrollIntoViewIfNeeded();
-		Contact_Number.type("1234567890", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(Contact_Number, "1234567890", 250);
 		Thread.sleep(250);
 
 		// Taking Screenshot
@@ -428,9 +428,9 @@ public class PlayWrightTests {
 		test_5.pass("Correct Contact Number Input",
 				MediaEntityBuilder.createScreenCaptureFromBase64String(base64Image).build());
 
-		// Filling Email Adress
+		// Filling Email Address
 		Email_Address.scrollIntoViewIfNeeded();
-		Email_Address.type("example@example.com", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(Email_Address, "example@example.com", 250);
 		Thread.sleep(250);
 
 		// Taking Screenshot
@@ -441,19 +441,19 @@ public class PlayWrightTests {
 
 		// Fill Address
 		Address_Street_1.scrollIntoViewIfNeeded();
-		Address_Street_1.type("81 Tooraweenah Road", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(Address_Street_1, "81 Tooraweenah Road", 250);
 		Thread.sleep(250);
 		Address_Street_2.scrollIntoViewIfNeeded();
-		Address_Street_2.type("", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(Address_Street_2, "", 250); // Assuming you want to clear or keep it empty
 		Thread.sleep(250);
 		Address_City.scrollIntoViewIfNeeded();
-		Address_City.type("Mugincoble", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(Address_City, "Mugincoble", 250);
 		Thread.sleep(250);
 		Address_State.scrollIntoViewIfNeeded();
-		Address_State.type("New South Wales", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(Address_State, "New South Wales", 250);
 		Thread.sleep(250);
 		Address_Zip.scrollIntoViewIfNeeded();
-		Address_Zip.type("2870", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(Address_Zip, "2870", 250);
 		Thread.sleep(250);
 
 		// Taking Screenshot
@@ -510,19 +510,19 @@ public class PlayWrightTests {
 		// It allows input for date
 		Thread.sleep(500);
 		Not_Date.scrollIntoViewIfNeeded();
-		Not_Date.type(String.format("%02d", Random_date.getMonthValue()), new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(Not_Date, String.format("%02d", Random_date.getMonthValue()), 250);
 		Thread.sleep(250);
-		Not_Date.type(String.format("%02d", Random_date.getDayOfMonth()), new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(Not_Date, String.format("%02d", Random_date.getDayOfMonth()), 250);
 		Thread.sleep(250);
-		Not_Date.type(String.valueOf(Random_date.getYear()), new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(Not_Date, String.valueOf(Random_date.getYear()), 250);
 		Thread.sleep(500);
 
 		// It allows input for the times
 		Thread.sleep(500);
 		Not_Time.scrollIntoViewIfNeeded();
-		Not_Time.type(String.format("%02d", random.nextInt(13), new Locator.TypeOptions().setDelay(250)));
+		typeWithDelay(Not_Time, String.format("%02d", random.nextInt(13)), 250);
 		Thread.sleep(250);
-		Not_Time.type(String.format("%02d", random.nextInt(60), new Locator.TypeOptions().setDelay(250)));
+		typeWithDelay(Not_Time, String.format("%02d", random.nextInt(60)), 250);
 		Thread.sleep(250);
 
 		// Choosing AM PM
@@ -538,7 +538,8 @@ public class PlayWrightTests {
 
 		// Input some services
 		Service.scrollIntoViewIfNeeded();
-		Service.type("A lot of service is needed.", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(Service, "A lot of service is needed.", 250);
+
 		Thread.sleep(250);
 
 		// Taking Screenshot
@@ -641,36 +642,41 @@ public class PlayWrightTests {
 		Locator Problem = page.locator("#input_6");
 		Locator Button = page.locator("#input_2");
 
+		// Filling in First Name
 		First_Name.scrollIntoViewIfNeeded();
-		First_Name.type("Chris", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(First_Name, "Chris", 250);
 		Thread.sleep(250);
 		byte[] screenshot = page.screenshot();
 		String base64Image = Base64.getEncoder().encodeToString(screenshot);
 		test.pass("First Name is shown", MediaEntityBuilder.createScreenCaptureFromBase64String(base64Image).build());
 
+		// Filling in Last Name
 		Last_Name.scrollIntoViewIfNeeded();
-		Last_Name.type("Wong", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(Last_Name, "Wong", 250);
 		Thread.sleep(250);
 		screenshot = page.screenshot();
 		base64Image = Base64.getEncoder().encodeToString(screenshot);
 		test.pass("Last Name is shown", MediaEntityBuilder.createScreenCaptureFromBase64String(base64Image).build());
 
+		// Filling in Email
 		Email.scrollIntoViewIfNeeded();
-		Email.type("example@example.com", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(Email, "example@example.com", 250);
 		Thread.sleep(250);
 		screenshot = page.screenshot();
 		base64Image = Base64.getEncoder().encodeToString(screenshot);
 		test.pass("Email is shown", MediaEntityBuilder.createScreenCaptureFromBase64String(base64Image).build());
 
+		// Filling in Department
 		Department.scrollIntoViewIfNeeded();
-		Department.type("Quality Assurance", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(Department, "Quality Assurance", 250);
 		Thread.sleep(250);
 		screenshot = page.screenshot();
 		base64Image = Base64.getEncoder().encodeToString(screenshot);
 		test.pass("Department is shown", MediaEntityBuilder.createScreenCaptureFromBase64String(base64Image).build());
 
+		// Filling in Computer ID
 		Computer_ID.scrollIntoViewIfNeeded();
-		Computer_ID.type("202410302117", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(Computer_ID, "202410302117", 250);
 		Thread.sleep(250);
 		screenshot = page.screenshot();
 		base64Image = Base64.getEncoder().encodeToString(screenshot);
@@ -723,7 +729,7 @@ public class PlayWrightTests {
 		}
 
 		Problem.scrollIntoViewIfNeeded();
-		Problem.type("1234567", new Locator.TypeOptions().setDelay(250));
+		typeWithDelay(Problem, "1234567", 250);
 		Thread.sleep(250);
 		screenshot = page.screenshot();
 		base64Image = Base64.getEncoder().encodeToString(screenshot);
@@ -792,6 +798,20 @@ public class PlayWrightTests {
 
 		return date;
 
+	}
+
+	private static void typeWithDelay(Locator locator, String text, long delayMillis) {
+		// Clear the existing text first
+		locator.fill(""); // Clears the input field
+
+		for (char c : text.toCharArray()) {
+			locator.fill(String.valueOf(c)); // Type one character at a time
+			try {
+				Thread.sleep(delayMillis); // Delay between keystrokes
+			} catch (InterruptedException e) {
+				Thread.currentThread().interrupt(); // Restore interrupted status
+			}
+		}
 	}
 
 }
