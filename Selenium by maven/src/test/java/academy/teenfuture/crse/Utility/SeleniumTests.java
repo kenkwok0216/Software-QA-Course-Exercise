@@ -1,40 +1,42 @@
 package academy.teenfuture.crse.Utility;
 
-import java.time.Duration;
+import java.util.Random;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.interactions.Actions;
 
 public class SeleniumTests {
-	// Set up of Firefox
-	@Disabled
+//	@BeforeEach
+//	static void beforeEach() {
+//
+//		/*
+//		 * try { ScreenRecorderUtil.deleteRecords(); } catch(Exception e) {
+//		 * System.out.println("No previous records: " + e); }
+//		 */
+//		try {
+//			ScreenRecorderUtil.startRecord("testRecord");
+//		} catch (Exception e) {
+//			System.out.println("startRecord err. in: " + e);
+//		}
+//	}
+//
+//	@AfterEach
+//	static void afterEach() {
+//		try {
+//			ScreenRecorderUtil.stopRecord();
+//		} catch (Exception e) {
+//			System.out.println("afterAll err. in: " + e);
+//		}
+//	}
+
 	@Test
-	public void getStart_Firefox() {
-		System.setProperty("webdriver.gecko.driver",
-				System.getProperty("user.dir") + "\\src\\main\\resources\\Driver\\FirefoxDriver\\geckodriver.exe");
-
-		FirefoxOptions options = new FirefoxOptions();
-		options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
-
-		WebDriver driver = new FirefoxDriver(options);
-		// WevDriver driver = new FirefoxDriver(); //for default setting
-		driver.get("https://www.google.com.hk");
-		driver.close();
-	}
-
-	@Test
-	@Disabled
-	public void ScrollUsingJavascriptCode() throws InterruptedException {
+	// @Disabled
+	public void Exercise1() throws InterruptedException {
 
 		System.setProperty("webdriver.gecko.driver",
 				System.getProperty("user.dir") + "\\src\\main\\resources\\Driver\\FirefoxDriver\\geckodriver.exe");
@@ -55,10 +57,10 @@ public class SeleniumTests {
 		WebElement Message = driver.findElement(By.xpath("//textarea[@data-component='textarea']"));
 		WebElement Button = driver.findElement(By.xpath("//button[@type='submit']"));
 
-		First_Name.sendKeys("Chris");
-		Last_Name.sendKeys("Wong");
-		Email.sendKeys("example@example.com");
-		Message.sendKeys("I am a message");
+		HumanTypeMethod(First_Name, "Chris"); // First Name
+		HumanTypeMethod(Last_Name, "Wong"); // Last Name
+		HumanTypeMethod(Email, "example@example.com"); // Email
+		HumanTypeMethod(Message, "I am a message"); // Message
 
 		Thread.sleep(5000);
 
@@ -74,6 +76,14 @@ public class SeleniumTests {
 		Thread.sleep(5000);
 
 		driver.close();
+	}
+
+	public static void HumanTypeMethod(WebElement webelement, String string) throws InterruptedException {
+		Random rnd = new Random();
+		for (int i = 0; i < string.length(); i++) {
+			webelement.sendKeys(String.valueOf(string.charAt(i)));
+			Thread.sleep(500 + rnd.nextInt(201));
+		}
 	}
 
 }
